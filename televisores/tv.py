@@ -10,7 +10,7 @@ class TV ():
         self._volumen = 1
         self._control = None
 
-        self._numTV += 1
+        TV._numTV += 1
     
     def turnOn (self):
 
@@ -32,13 +32,13 @@ class TV ():
 
     def canalDown (self):
 
-        if self.estado and 1 < self._canal:
+        if self._estado and 1 < self._canal:
 
             self._canal -= 1
 
     def volumenUp (self):
 
-        if self.estado and self._volumen < 7:
+        if self._estado and self._volumen < 7:
 
             self._volumen += 1
     
@@ -102,3 +102,22 @@ class TV ():
 
         return (cls._numTV)
     
+if __name__ == "__main__":
+
+    from marca import Marca; from control import Control
+
+    marca = Marca ("a")
+
+    tv1 = TV(marca, True)
+
+    tv2 = TV(marca, False)
+
+    tv3 = TV(marca, True)
+
+    print(TV.getNumTV())
+
+    TV.setNumTV (0)
+
+    tv4 = TV(marca, False)
+
+    print(TV.getNumTV())
