@@ -10,7 +10,7 @@ class TV ():
         self._volumen = 1
         self._control = None
 
-        _numTV += 1
+        self._numTV += 1
     
     def turnOn (self):
 
@@ -102,6 +102,3 @@ class TV ():
 
         return (cls._numTV)
     
-
-
-
